@@ -24,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>My Projects Portfolio</h1>
         {loading ? (
           <p>Loading projects...</p>
         ) : (
