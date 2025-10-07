@@ -24,6 +24,7 @@ function Home() {
         console.error('Error checking admin status:', err);
       }
     };
+
     checkAdmin();
   }, []);
 
@@ -32,7 +33,7 @@ function Home() {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/projects');
+        const response = await fetch('/api/projects');
         if (!response.ok) {
           throw new Error('Failed to fetch projects');
         }
@@ -58,7 +59,7 @@ function Home() {
 
   if (loading) {
     return (
-      <div style={{ padding: '20px', textAlign: 'center' }}>
+      <div style={{{ padding: '20px', textAlign: 'center' }}}>
         <h1>My Projects Portfolio</h1>
         <p>Loading projects...</p>
       </div>
@@ -67,16 +68,16 @@ function Home() {
 
   if (error) {
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{{ padding: '20px' }}}>
         <h1>My Projects Portfolio</h1>
-        <p style={{ color: 'red' }}>Error: {error}</p>
+        <p style={{{ color: 'red' }}}>Error: {error}</p>
         <p>Please make sure the backend server is running.</p>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{{ padding: '20px' }}}>
       <h1>My Projects Portfolio</h1>
       
       {/* Show Add Project button only for admin */}
@@ -103,7 +104,7 @@ function Home() {
         {projects.length === 0 ? (
           <p>No projects found. {isAdmin ? 'Click "Add Project" to create your first project!' : 'Check back later for updates.'}</p>
         ) : (
-          <ul style={{ listStyle: 'none', padding: 0 }}>
+          <ul style={{{ listStyle: 'none', padding: '0' }}}>
             {projects.map(project => (
               <li
                 key={project._id}
@@ -115,10 +116,10 @@ function Home() {
                   backgroundColor: '#f9f9f9'
                 }}
               >
-                <h3 style={{ margin: '0 0 10px 0' }}>{project.title}</h3>
-                <p style={{ margin: '0 0 10px 0' }}>{project.description}</p>
+                <h3 style={{{ margin: '0 0 10px 0' }}}>{project.title}</h3>
+                <p style={{{ margin: '0 0 10px 0' }}}>{project.description}</p>
                 {project.technologies && (
-                  <div style={{ marginBottom: '10px' }}>
+                  <div style={{{ marginBottom: '10px' }}}>
                     <strong>Technologies: </strong>
                     {project.technologies.join(', ')}
                   </div>
@@ -128,7 +129,7 @@ function Home() {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#007bff', textDecoration: 'none', marginRight: '15px' }}
+                    style={{{ color: '#007bff', textDecoration: 'none', marginRight: '15px' }}}
                   >
                     GitHub
                   </a>
@@ -138,7 +139,7 @@ function Home() {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#28a745', textDecoration: 'none' }}
+                    style={{{ color: '#28a745', textDecoration: 'none' }}}
                   >
                     Live Demo
                   </a>
